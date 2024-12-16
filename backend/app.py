@@ -19,3 +19,6 @@ def search_items(query: str = Query("", min_length=1)) -> List[dict]:
         if query.lower() in item["name"].lower() or query.lower() in item["description"].lower()
     ]
     return results
+
+# Wrap the FastAPI app with Mangum
+handler = Mangum(app)
